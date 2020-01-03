@@ -705,7 +705,7 @@ export class InnerSlider extends React.Component {
     let innerSliderProps = {
       className: className,
       dir: "ltr",
-      style:this.props.style
+      style: this.props.style
     };
 
     if (this.props.unslick) {
@@ -714,14 +714,16 @@ export class InnerSlider extends React.Component {
     }
     return (
       <div {...innerSliderProps}>
-        {!this.props.unslick ? prevArrow : ""}
         <div ref={this.listRefHandler} {...listProps}>
           <Track ref={this.trackRefHandler} {...trackProps}>
             {this.props.children}
           </Track>
         </div>
-        {!this.props.unslick ? nextArrow : ""}
-        {!this.props.unslick ? dots : ""}
+        <div className="slick-actions">
+          {!this.props.unslick ? prevArrow : ""}
+          {!this.props.unslick ? dots : ""}
+          {!this.props.unslick ? nextArrow : ""}
+        </div>
       </div>
     );
   };
